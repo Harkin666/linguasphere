@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Web.Site1" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - LinguaSphere</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff; 
+        }
+
+        .top-navbar {
+            background-color: #2c3034; 
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar .brand {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .top-navbar .nav-links a {
+            color: #c0c0d0;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-navbar .nav-links a:hover {
+            color: #ffffff;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <header class="top-navbar">
+            <a runat="server" class="brand" href="~/">LinguaSphere</a>
+            <nav class="nav-links">
+                <a runat="server" href="~/">Home</a>
+                <a runat="server" href="~/About">About</a>
+                <a runat="server" href="~/Contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+    </form>
+</body>
+</html>
