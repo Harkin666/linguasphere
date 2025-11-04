@@ -70,5 +70,6 @@ WHERE LOWER(LTRIM(RTRIM(Email))) = LOWER(LTRIM(RTRIM(@e)));";
                 return (int)cmd.ExecuteScalar() > 0;
             }
         }
+
     }
 }

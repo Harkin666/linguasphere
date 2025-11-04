@@ -14,7 +14,6 @@ namespace Web
     public partial class AdminDashboard
     {
 
-        /// <summary>
         /// lblLessons control.
         /// </summary>
         /// <remarks>

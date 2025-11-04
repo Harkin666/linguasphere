@@ -45,7 +45,7 @@
                     <label>Password</label>
                     <asp:TextBox ID="txtPassword" runat="server" CssClass="form-input" TextMode="Password"></asp:TextBox>
                 </div>
-                <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn-register" />
+                <asp:Button ID="btnRegister" runat="server" Text="Register" CssClass="btn-register" OnClick="btnRegister_Click" />
                 <div class="login-link">
                     Already have an account? <a href="Login.aspx">Sign in</a>
                 </div>

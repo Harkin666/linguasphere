@@ -23,6 +23,7 @@ namespace Web
                 BindLessonsToDropdown();
                 BindRoleDropdown();
                 BindLevelDropdowns();
+                BindSummaryCounts();
             }
         }
 
@@ -34,6 +35,15 @@ namespace Web
             ddlAssociatedLesson.DataValueField = "Id";
             ddlAssociatedLesson.DataBind();
             ddlAssociatedLesson.Items.Insert(0, new ListItem("-- Select lesson --", ""));
+        }
+
+        private void BindSummaryCounts()
+        {
+            var lessons = LessonsRepo.List();
+            lblLessons.Text = $"Lessons ({lessons.Rows.Count})";
+
+            var quizzes = QuizzesRepo.ListWithQuestionCount();
+            lblQuizzes.Text = $"Quizzes ({quizzes.Rows.Count})";
         }
 
         // >>> add: fills the Role dropdown
@@ -92,6 +102,7 @@ namespace Web
 
             ScriptManager.RegisterStartupScript(this, GetType(), "closeLesson", "closeLessonModal();", true);
             BindLessonsToDropdown();
+            BindSummaryCounts();
         }
 
         protected void btnSaveQuiz_Click(object sender, EventArgs e)
@@ -111,6 +122,7 @@ namespace Web
 
             NumberOfQuestions = 1;
             ScriptManager.RegisterStartupScript(this, GetType(), "closeQuiz", "closeQuizModal();", true);
+            BindSummaryCounts();
         }
 
         protected void btnSaveUser_Click(object sender, EventArgs e)
